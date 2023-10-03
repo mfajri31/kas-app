@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="row mt-4">
+        <div class="col-lg-6">
+            <h3>Edit Uang Masuk</h3>
+
+            <form action="/update" method="post">
+                <input type="hidden" name="id" value="<%= uangMasuk._id %>">
+                <div class="mb-3">
+                    <label for="sumber_dana" class="form-label">Sumber Dana</label>
+                    <input type="text" class="form-control" name="sumber_dana" value="<%= uangMasuk.sumber_dana %>"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="nominal" class="form-label">Nominal</label>
+                    <input type="text" class="form-control" name="nominal" value="<%= uangMasuk.nominal %>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="tanggal" class="form-label">Tanggal</label>
+                    <input type="date" class="form-control" name="tanggal" value="<%= uangMasuk.tanggal %>" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+    </div>
+
+    <%- include('partials/footer.ejs') %>
