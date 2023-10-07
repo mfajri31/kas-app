@@ -18,6 +18,10 @@ app.use("/", dashboardRoute);
 app.use("/uangmasuk", uangMasukRoute);
 app.use("/uangkeluar", uangKeluarRoute);
 
+app.use((req, res) => {
+  res.status(404).send("Halaman tidak ditemukan");
+});
+
 const port = 3000;
 app.listen(port, () => {
   console.log(`App is running on port http://localhost:${port}`);
