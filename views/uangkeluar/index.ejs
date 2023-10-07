@@ -1,0 +1,52 @@
+<%- include('../partials/header.ejs') -%>
+
+    <div class="row mt-4">
+        <div class="col-lg-12">
+            <h4>Uang Keluar</h4>
+
+            <div class="d-flex flex-row-reverse">
+                <a href="/uangkeluar/tambah" class="btn btn-primary btn-sm mb-1">Tambah Transaksi</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th class="text-center">#</th>
+                            <th>Keperluan</th>
+                            <th>Nominal</th>
+                            <th>Tanggal</th>
+                            <th width="20%" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% let number=1; %>
+                            <% uangKeluar.forEach(function(uk){ %>
+                                <tr>
+                                    <td class="text-center">
+                                        <%= number++ %>
+                                    </td>
+                                    <td>
+                                        <%= uk.keperluan %>
+                                    </td>
+                                    <td>
+                                        <%= uk.nominal %>
+                                    </td>
+                                    <td>
+                                        <%= uk.tanggal %>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="/uangkeluar/edit/<%= uk._id %>" class="btn btn-success btn-sm">Edit</a>
+                                        <a href="/uangkeluar/hapus/<%= uk._id %>"
+                                            onclick="return confirm('Yakin ingin dihapus?')"
+                                            class="btn btn-danger btn-sm">Hapus</a>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer.ejs') -%>
